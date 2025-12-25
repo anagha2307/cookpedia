@@ -11,30 +11,30 @@ import { SavedReciepes } from './saved-reciepes/saved-reciepes';
 
 export const routes: Routes = [
     {
-        path:'home',component:Home
+        path:'home',component:Home, title:'Cookpedia - Home'
     },
     {
-        path:'reciepes',component:Reciepes
+        path:'recipes',component:Reciepes,  title:'Cookpedia - Recipes'
     },
     {
-        path:'reciepes/:id/view',component:ViewReciepe
+        path:'reciepes/:id/view',component:ViewReciepe, title:'Cookpedia - Recipe'
     },
     {
-        path:'saved-reciepes',component:SavedReciepes
+        path:'saved-recipes',component:SavedReciepes, title:'Cookpedia - Saved Recipes'
     },
     {
-        path:'about',component:About
+        path:'about',component:About, title:'Cookpedia - About'
     },
     {
-        path:'contact',component:Contact
+        path:'contact',component:Contact, title:'Cookpedia - Contact'
     },
     {
-        path:'login',component:Login
+        path:'login',component:Login, title:'Cookpedia - Login'
     },
     {
-        path:'register',component:Register
+        path:'register',component:Register, title:'Cookpedia - Register'
     },
     {
-        path:'**',component:Pnf
+        path:'**',component:Pnf, title:'Cookpedia - Page Not Found'
     },
 ];
