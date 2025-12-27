@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container my-5">
-    <div class="row">
-        <div class="col-lg-4">
+    <div class="row g-3">
+        <div class="col-lg-3">
             <h4>Filter</h4>
             <button class="btn mt-4">All</button>
             <!--cuisine dropdown-->
@@ -25,22 +25,23 @@
                 <button class="btn">meal</button>
             </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <div class="d-flex justify-content-between align-items-center">
                 <h1>All Recipes</h1>
                 <input type="text" class="form-control w-50" placeholder="Search recipe name">
             </div>
             <div class="row my-4">
-                <div class="col-lg-4">
-                    <div class="p-3">
-                    <img src="https://t3.ftcdn.net/jpg/03/28/01/60/360_F_328016079_nUH0w4v1lB4bUrmoIdrn1S68DhlxoDCS.jpg"
-                        alt="recipe image" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Recipe name</h5>
-                        <p>Cuisine : name</p>
+                @for (recipe of allRecipes; track $index) {
+                <div class="col-lg-3 col-md-6 col-12 mb-2">
+                    <div class="p-3 h-100">
+                        <img [src]="recipe.image" width="400px" alt="recipe image" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{recipe.name}}</h5>
+                            <p>Cuisine : {{recipe.cuisine}}</p>
+                        </div>
                     </div>
                 </div>
-                </div>
+                }
             </div>
         </div>
     </div>
