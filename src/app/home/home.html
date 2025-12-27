@@ -28,7 +28,7 @@
             @for (recipe of allRecipes; track $index){
             <div class="col-lg-4">
                 <div class="p-3">
-                    <img [src]="recipe.image" width="300" height="280" alt="recipe image" class="card-img-top">
+                    <img [src]="recipe.image" loading="lazy" width="300" height="280" alt="recipe image" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title my-2">{{recipe.name}}</h5>
                     </div>
