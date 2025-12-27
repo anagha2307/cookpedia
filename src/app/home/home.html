@@ -1,3 +1,121 @@
 <app-header></app-header>
-<h1 class="my-5 text-center">Cookpedia</h1>
+<div class="container">
+    <!--Landing page-->
+    <div class="row align-items-center bg-success p-5 text-light">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4 my-2">
+            <h1 class="my-2 fw-bold">The Easiest Way to Make Your Favourite Meal</h1>
+            <p style="text-align: justify;" class="fw-5">Discover 100+ recipes very quick And fast.
+                Find the perfect food ideas to start your day with the quick and easiest way.
+            </p>
+            <a routerLink="/recipes" class="btn btn-success border text-light">Explore Our Recipes</a>
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-3">
+            <img class="w-100 my-5 recipeImg" src="https://www.pngall.com/wp-content/uploads/2/Healthy-Meal.png"
+                alt="food image">
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <!--popular recipes-->
+    <div class="p-5 my-5">
+        <h1>Popular Recipe of the Week</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <p class="fs-5">Our most popular recipes of the week</p>
+            <a routerLink="/recipes" class="text-secondary text-decoration-none">View all</a>
+        </div>
+        <div class="row my-3">
+            @for (recipe of allRecipes; track $index){
+            <div class="col-lg-4">
+                <div class="p-3">
+                    <img [src]="recipe.image" width="300" height="280" alt="recipe image" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title my-2">{{recipe.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    <!--recipe banner-->
+    <div style="background-image: url('https://img.freepik.com/premium-photo/food-banners_583952-13024.jpg'); background-repeat: no-repeat; background-size: cover; height: 400px;"
+        class="row align-items-center my-5">
+        <div class="col-lg-6"></div>
+        <div class="col-lg-6">
+            <div class="bg-light rounded shadow p-5 w-75">
+                <h3>50+ Recipes That Very Quick And Fast </h3>
+                <p class="text-secondary">Find the perfect food ideas to start your day with the quick and easiest way
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <!--download app-->
+    <div class="row align-items-center my-5 p-5 bg-success text-light rounded">
+        <div class="col-lg-5">
+            <img style="height: 320px;"
+                src="https://toppng.com/uploads/thumbnail/android-app-on-google-play-11568829115kt4gig8l67.png"
+                alt="download app image">
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-6 text-center">
+            <h1>Download App</h1>
+            <h5>Download the app from App store or Google Play for a better experience</h5>
+            <img width="150px"
+                src="https://freepngimg.com/download/android/67006-app-play-google-android-store-free-clipart-hd.png"
+                alt="android">
+            <img width="150px" src="https://benic360.com/wp-content/uploads/2020/06/apple-store-icon-png-8.png"
+                alt="ios">
+
+        </div>
+    </div>
+    <!--Testimonials-->
+    <div class="my-5 text-center">
+        <h1>Client Testimonials</h1>
+        <div class="scroll-text my-5 d-flex gap-5">
+            <div style="width: 200px;" class="border shadow p-3">
+                <div class="text-center">
+                    <img style="width: 50px; height: 50px; border-radius: 50%;"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTivbsbyo8aPjn7FjlLmMFb8otwI7Zg4s1jgA&s"
+                        alt="user1">
+                    <div class="text-center">
+                        <span class="fw-bold">Client Name </span>
+                        <p class="text-secondary">Email id</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.Numquam quasi nam ratione impedit.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div style="width: 200px;" class="border shadow p-3">
+                <div class="text-center">
+                    <img style="width: 50px; height: 50px; border-radius: 50%;"
+                        src="https://res.cloudinary.com/dqumkzogr/image/upload/v1745538327/khwtmgb8fwrtrnponlto.jpg"
+                        alt="user1">
+                    <div class="text-center">
+                        <span class="fw-bold">Client Name </span>
+                        <p class="text-secondary">Email id</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.Numquam quasi nam ratione impedit.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div style="width: 200px;" class="border shadow p-3">
+                <div class="text-center">
+                    <img style="width: 50px; height: 50px; border-radius: 50%;"
+                        src="https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?semt=ais_hybrid&w=740&q=80"
+                        alt="user1">
+                    <div class="text-center">
+                        <span class="fw-bold">Client Name </span>
+                        <p class="text-secondary">Email id</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.Numquam quasi nam ratione impedit.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <app-footer></app-footer>

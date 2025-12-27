@@ -17,7 +17,7 @@ export const routes: Routes = [
         path:'recipes',component:Reciepes,  title:'Cookpedia - Recipes'
     },
     {
-        path:'reciepes/:id/view',component:ViewReciepe, title:'Cookpedia - Recipe'
+        path:'recipes/:id/view',component:ViewReciepe, title:'Cookpedia - Recipe'
     },
     {
         path:'saved-recipes',component:SavedReciepes, title:'Cookpedia - Saved Recipes'
