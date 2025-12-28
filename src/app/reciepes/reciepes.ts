@@ -5,10 +5,11 @@ import { ApiService } from '../services/api-service';
 import { Router } from '@angular/router';
 import { SearchPipe } from '../pipes/search-pipe';
 import { FormsModule, NgModel } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-reciepes',
-  imports: [Header,Footer,SearchPipe,FormsModule],
+  imports: [Header,Footer,SearchPipe,FormsModule,NgxPaginationModule],
   templateUrl: './reciepes.html',
   styleUrl: './reciepes.css',
 })
@@ -19,6 +20,7 @@ export class Reciepes {
   mealTypeArray : any = []
   dummyAllRecipe : any = []
   searchKey:string = ""
+  p:number = 1
 
   api = inject(ApiService)
   router = inject(Router)

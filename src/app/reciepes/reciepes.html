@@ -37,7 +37,7 @@
                 <input [(ngModel)] = "searchKey" type="text" class="form-control w-50" placeholder="Search recipe name">
             </div>
             <div class="row my-4">
-                @for (recipe of allRecipes | search : searchKey; track $index) {
+                @for (recipe of allRecipes | search : searchKey | paginate: { itemsPerPage: 9, currentPage: p }; track $index) {
                 <div class="col-lg-4 col-6 mb-2">
                     <div (click)="navigateView(recipe._id)" class="p-3 h-100">
                         <img [src]="recipe.image" loading="lazy" width="400" height="200" alt="recipe image" 
@@ -49,9 +49,13 @@
                     </div>
                 </div>
                 }
-                @if ((allRecipes | search : searchKey).length == 0) {
+                @if ((allRecipes | search : searchKey ).length == 0) {
                     <h4 class="fw-bold text-danger p-5">Recipe not found.....!!!</h4>
                 }
+            </div>
+            <div class="mb-3 text-center">
+                <!--pagination control-->
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>
     </div>
