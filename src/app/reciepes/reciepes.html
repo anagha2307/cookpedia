@@ -1,9 +1,10 @@
 <app-header></app-header>
 <div class="container my-5">
     <div class="row g-3">
+        <!--filter section-->
         <div class="col-lg-3">
-            <h4>Filter</h4>
-            <button class="btn mt-4">All</button>
+            <h3>Filter</h3>
+            <button (click)="getAllRecipes()" class="btn mt-4">All</button>
             <!--cuisine dropdown-->
             <br>
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="collapse"
@@ -12,7 +13,9 @@
             </button>
             <div class="collapse my-2" id="collapseExample1">
                 <!--duplicating cuisine-->
-                <button class="btn">cuisine</button>
+                @for (cuisine of cuisineArray; track $index) {
+                <button (click)="filterRecipe('cuisine',cuisine)" class="btn">{{cuisine}}</button>
+                }
             </div>
             <!--meal type dropdown-->
             <br>
@@ -21,10 +24,13 @@
                 Meal Type
             </button>
             <div class="collapse my-1" id="collapseExample2">
-                <!--duplicating cuisine-->
-                <button class="btn">meal</button>
+                <!--duplicating meal type-->
+                @for (meal of mealTypeArray; track $index) {
+                <button (click)="filterRecipe('mealType',meal)" class="btn">{{meal}}</button>
+                }
             </div>
         </div>
+        <!--recipe section-->
         <div class="col-lg-9">
             <div class="d-flex justify-content-between align-items-center">
                 <h1>All Recipes</h1>
@@ -32,9 +38,10 @@
             </div>
             <div class="row my-4">
                 @for (recipe of allRecipes; track $index) {
-                <div class="col-lg-3 col-md-6 col-12 mb-2">
-                    <div class="p-3 h-100">
-                        <img [src]="recipe.image" width="400px" alt="recipe image" class="card-img-top">
+                <div class="col-lg-4 col-6 mb-2">
+                    <div (click)="navigateView(recipe._id)" class="p-3 h-100">
+                        <img [src]="recipe.image" loading="lazy" width="400" height="200" alt="recipe image" 
+                        class="card-img-top img-fluid">
                         <div class="card-body">
                             <h5 class="card-title">{{recipe.name}}</h5>
                             <p>Cuisine : {{recipe.cuisine}}</p>
