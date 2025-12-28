@@ -3,10 +3,12 @@ import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { ApiService } from '../services/api-service';
 import { Router } from '@angular/router';
+import { SearchPipe } from '../pipes/search-pipe';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-reciepes',
-  imports: [Header,Footer],
+  imports: [Header,Footer,SearchPipe,FormsModule],
   templateUrl: './reciepes.html',
   styleUrl: './reciepes.css',
 })
@@ -16,6 +18,7 @@ export class Reciepes {
   cuisineArray : any = []
   mealTypeArray : any = []
   dummyAllRecipe : any = []
+  searchKey:string = ""
 
   api = inject(ApiService)
   router = inject(Router)
