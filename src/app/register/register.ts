@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Footer } from '../footer/footer';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { validate } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,17 @@ export class Register {
 
   constructor(private fb:FormBuilder){
     this.registerForm = this.fb.group({
-      username : ["",[Validators.required,Validators.pattern('[a-zA-Z ]*')]]
+      username : ["",[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      email : ["",[Validators.required,Validators.email]],
+      password : ["",[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
     })
+  }
+  register(){
+    if(this.registerForm.valid){
+      alert("Call api")
+    }
+    else{
+      alert("Invalid Form")
+    }
   }
 }
