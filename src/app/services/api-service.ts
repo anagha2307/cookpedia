@@ -20,4 +20,12 @@ export class ApiService {
   loginAPI(reqBody:any){
     return this.http.post(`${this.serverURL}/login`,reqBody)
   }
+  //view recipe
+  viewRecipeAPI(){
+    return this.http.get(`${this.serverURL}/recipes/:id/view`)
+  }
+  relatedRecipeAPI(){
+    
+  }
+
 }

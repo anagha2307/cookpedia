@@ -28,7 +28,7 @@ export class Login {
       const password = this.loginForm.value.password
       this.api.loginAPI({email,password}).subscribe({
         next:(res:any) => {
-          alert("Login Successful....")
+          alert("Login Successful....!!!!!")
           sessionStorage.setItem("token",res.token)
           sessionStorage.setItem("user",JSON.stringify(res.user))
           res.user.role == "user" ? this.router.navigateByUrl('/') : this.router.navigateByUrl('/admin/home')

@@ -14,7 +14,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
   styleUrl: './reciepes.css',
 })
 export class Reciepes {
-
   allRecipes :any = []
   cuisineArray : any = []
   mealTypeArray : any = []
@@ -34,13 +33,11 @@ export class Reciepes {
       this.allRecipes = res
       //console.log(this.allRecipes);
       this.dummyAllRecipe = res
-
       //cuisine
       this.allRecipes.forEach((item:any) => {
         !this.cuisineArray.includes(item.cuisine) && this.cuisineArray.push(item.cuisine)
       });
-      //console.log(this.cuisineArray);
-      
+      //console.log(this.cuisineArray);     
       //meal type 
       const dummyMealArray = this.allRecipes.map((item : any) => item.mealType).flat(Infinity)
         dummyMealArray.forEach((item:any) => {
