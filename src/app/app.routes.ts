@@ -11,7 +11,7 @@ import { SavedReciepes } from './saved-reciepes/saved-reciepes';
 
 export const routes: Routes = [
     {
-        path:'home',component:Home, title:'Cookpedia - Home'
+        path:'',component:Home, title:'Cookpedia - Home'
     },
     {
         path:'recipes',component:Reciepes,  title:'Cookpedia - Recipes'
