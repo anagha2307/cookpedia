@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
 @Injectable({
@@ -20,12 +20,21 @@ export class ApiService {
   loginAPI(reqBody:any){
     return this.http.post(`${this.serverURL}/login`,reqBody)
   }
+  //append token : return token append req header
+  appendToken(){
+    const token = sessionStorage.getItem("token")
+    let headers = new HttpHeaders()
+    if(token){
+      headers = headers.append("Authorization",`Bearer ${token}`)
+    }
+    return {headers}
+  }
   //view recipe
-  viewRecipeAPI(){
-    return this.http.get(`${this.serverURL}/recipes/:id/view`)
+  viewRecipeAPI(recipeId:string){
+    return this.http.get(`${this.serverURL}/recipes/${recipeId}/view`,this.appendToken())
   }
-  relatedRecipeAPI(){
-    
+  //related recipe
+  relatedRecipeAPI(cuisine:string){
+    return this.http.get(`${this.serverURL}/related-recipes?cuisine=${cuisine}`,this.appendToken())
   }
-
 }
