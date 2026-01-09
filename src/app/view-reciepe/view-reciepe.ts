@@ -30,6 +30,7 @@ export class ViewReciepe{
       this.getRecipeDetails(this.recipeId)     
     })
   }
+
   //get recipe
   getRecipeDetails(id:any){
     this.api.viewRecipeAPI(id).subscribe({
@@ -55,6 +56,12 @@ export class ViewReciepe{
       }
     })
   }
+  //api for download
+  addToDownload(){
+    this.api.addToDownloadAPI(this.recipe).subscribe((res:any) => {
+      this.downloadRecipe()
+    })
+  }
   //download recipe
   downloadRecipe(){
     let pdf = new jsPDF
@@ -65,5 +72,16 @@ export class ViewReciepe{
       body:[bodyData]
     })
     pdf.save('Recipe.pdf')
+  }
+  //save recipe
+  saveRecipe(){
+    this.api.saveRecipeAPI(this.recipe).subscribe({
+      next:(res:any)=>{
+        alert(`${res.recipeName} added to your Collection...`)
+      },
+      error:(reason:any)=>{
+        alert(reason.error)
+      }
+    })
   }
 }

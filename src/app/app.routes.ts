@@ -8,6 +8,7 @@ import { Login } from './login/login';
 import { Register } from './register/register';
 import { Pnf } from './pnf/pnf';
 import { SavedReciepes } from './saved-reciepes/saved-reciepes';
+import { Profile } from './profile/profile';
 
 export const routes: Routes = [
     {
@@ -30,6 +31,9 @@ export const routes: Routes = [
     },
     {
         path:'login',component:Login, title:'Cookpedia - Login'
+    },
+    {
+        path:'profile',component:Profile, title:'Cookpedia - Profile'
     },
     {
         path:'register',component:Register, title:'Cookpedia - Register'

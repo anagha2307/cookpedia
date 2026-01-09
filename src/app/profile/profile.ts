@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { Header } from '../header/header';
+import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-profile',
-  imports: [],
+  imports: [Header, Footer],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })

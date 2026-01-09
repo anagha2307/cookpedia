@@ -7,54 +7,29 @@
         </div>
         <div class="col-lg-2"></div>
     </div>
-    <div class="row">
+    @if (recipes.length > 0) {
+    <div class="row my-3">
+        @for (recipe of recipes; track $index) {
         <div class="col-lg-3">
             <div class="p-3">
-                <img src="https://cdn.dummyjson.com/recipe-images/5.webp" alt="saved recipe" class="img-fluid">
+                <img [src]="recipe.recipeImage" alt="saved recipe" class="img-fluid">
                 <div class="d-flex justify-content-between align-items-center my-2">
-                    <h5>Recipe name</h5>
-                    <i class="fa-solid fa-trash text-danger"></i>
+                    <h5>{{recipe.recipeName}}</h5>
+                    <button (click)="deleteSavedRecipe(recipe._id)" class="btn">
+                        <i class="fa-solid fa-trash text-danger"></i>
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
-            <div class="p-3">
-                <img src="https://cdn.dummyjson.com/recipe-images/5.webp" alt="saved recipe" class="img-fluid">
-                <div class="d-flex justify-content-between align-items-center my-2">
-                    <h5>Recipe name</h5>
-                    <i class="fa-solid fa-trash text-danger"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="p-3">
-                <img src="https://cdn.dummyjson.com/recipe-images/5.webp" alt="saved recipe" class="img-fluid">
-                <div class="d-flex justify-content-between align-items-center my-2">
-                    <h5>Recipe name</h5>
-                    <i class="fa-solid fa-trash text-danger"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="p-3">
-                <img src="https://cdn.dummyjson.com/recipe-images/5.webp" alt="saved recipe" class="img-fluid">
-                <div class="d-flex justify-content-between align-items-center my-2">
-                    <h5>Recipe name</h5>
-                    <i class="fa-solid fa-trash text-danger"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="p-3">
-                <img src="https://cdn.dummyjson.com/recipe-images/5.webp" alt="saved recipe" class="img-fluid">
-                <div class="d-flex justify-content-between align-items-center my-2">
-                    <h5>Recipe name</h5>
-                    <i class="fa-solid fa-trash text-danger"></i>
-                </div>
-            </div>
-        </div>
+        }
     </div>
-
+    }
+    @else {
+        <div class="d-flex flex-column justify-content-center align-items-center mb-5">
+            <img src="https://cdn.dribbble.com/userupload/23000951/file/original-51162083f8d27d9af7c6c0a19b9116ba.gif" alt="" class="img-fluid w-50 h-25">
+            <h1>Oops........Your Collection is Empty!!!!</h1>
+            <a routerLink="/recipes" class="btn btn-primary">Add More</a>
+        </div>
+    }
 </div>
-
 <app-footer></app-footer>
