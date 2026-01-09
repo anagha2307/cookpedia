@@ -1,6 +1,51 @@
-<app-header/>
+<app-header />
 <div class="container">
-<p>profile works!</p>
-
+    <div style="height: 200px;" class="row bg-success"></div>
+    <div>
+        <img width="200px" height="200px" style="border-radius: 50%; margin-top: -100px;"
+            src="https://res.cloudinary.com/dqumkzogr/image/upload/v1749513679/xfuinmfwnfpdxrxg1s7m.jpg" alt="user"
+            class="border p-2 ms-5">
+    </div>
+    <h3 class="mt-5">Welcome User
+        <button class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+            <i class="fa-solid fa-edit text-primary"></i>
+        </button>
+    </h3>
+    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nisi ullam magni laboriosam ab, dicta ipsam, cupiditate hic, iste libero animi quas perferendis error doloremque magnam nulla dolorem reprehenderit voluptatem.
+    Iure omnis numquam exercitationem dignissimos dolores sequi, facilis aut. Tempore nulla, officia molestiae veniam quibusdam provident aliquid deserunt a, adipisci minima sed unde, ea dolorem optio. Eveniet unde aperiam consequatur.
+    Tempora enim alias nesciunt expedita aliquam, labore ducimus. Voluptate harum ratione, tempora nemo facere, labore animi quos reiciendis veritatis voluptatem omnis natus ex nostrum odit accusantium rem impedit doloremque pariatur.</p>
+    <h2>Download Recipe List</h2>
+    <div class="row">
+         <div class="col-md-3">
+            <div class="p-3">
+                <img src="https://cdn.dummyjson.com/recipe-images/5.webp" alt="recipe" class="img-fluid card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Recipe name</h5>
+                </div>
+            </div>
+         </div>
+    </div>
 </div>
-<app-footer/>
+<app-footer />
+<!--Off canvas-->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
