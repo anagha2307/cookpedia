@@ -41,6 +41,10 @@ export class ApiService {
   addToDownloadAPI(recipe:any){
     return this.http.put(`${this.serverURL}/recipes/${recipe._id}/download`,recipe,this.appendToken())
   }
+  //get saved recipes
+  getDownloadedRecipesAPI(){
+    return this.http.get(`${this.serverURL}/recipes/downloaded`,this.appendToken())
+  }
   //save recipe
   saveRecipeAPI(recipe:any){
     return this.http.post(`${this.serverURL}/recipes/${recipe._id}/save`,recipe,this.appendToken())
