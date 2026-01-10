@@ -57,4 +57,8 @@ export class ApiService {
   deleteSavedRecipesAPI(recipeId:any){
     return this.http.delete(`${this.serverURL}/saved-recipes/${recipeId}/delete`,this.appendToken())
   }
+  //update user profile
+  updateUserAPI(user:any){
+    return this.http.put(`${this.serverURL}/users/${user._id}/edit`,user,this.appendToken())
+  }
 }

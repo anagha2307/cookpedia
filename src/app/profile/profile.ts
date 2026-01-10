@@ -15,6 +15,7 @@ export class Profile {
   username:string = ""
   password:string = ""
   confirmPassword:string = ""
+  profile:string = "https://preview.redd.it/what-would-happen-if-joe-met-georgia-miller-v0-cxwrm0bxozaf1.jpg?width=640&crop=smart&auto=webp&s=12f32a1ed997803ce03168c8ea7e1d824905b511"
   recipes:any = []
   api = inject(ApiService)
 
@@ -22,6 +23,9 @@ export class Profile {
     if(sessionStorage.getItem("user")){
       const user = JSON.parse(sessionStorage.getItem("user") || "")
       this.username = user.username
+      if(user.profile){
+        this.profile = user.profile
+      }
     }
   }
   ngOnInit(){

@@ -3,7 +3,7 @@
     <div style="height: 200px;" class="row bg-success"></div>
     <div>
         <img width="200px" height="200px" style="border-radius: 50%; margin-top: -100px;"
-            src="https://res.cloudinary.com/dqumkzogr/image/upload/v1749513679/xfuinmfwnfpdxrxg1s7m.jpg" alt="user"
+            [src]="profile" alt="user"
             class="border p-2 ms-5">
     </div>
     <h3 class="mt-5">Welcome <span class="text-success">{{username}}</span>
@@ -11,18 +11,14 @@
             <i class="fa-solid fa-edit text-primary"></i>
         </button>
     </h3>
-    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nisi ullam  magni
-        laboriosam ab, dicta ipsam, cupiditate hic, iste libero animi quas perferendis error doloremque magnam nulla
-        dolorem reprehenderit voluptatem.Iure omnis numquam exercitationem dignissimos dolores sequi, facilis aut. Tempore nulla, officia molestiae
-        veniam quibusdam provident aliquid deserunt a, adipisci minima sed unde, ea dolorem optio. Eveniet unde aperiam
-        consequatur.Tempora enim alias nesciunt expedita aliquam, labore ducimus. Voluptate harum ratione, tempora nemo facere,
-        labore animi quos reiciendis veritatis voluptatem omnis natus ex nostrum odit accusantium rem impedit doloremque
-        pariatur.</p>
+    <p style="text-align: justify;">
+        Hi, I’m {{username}}. This is my corner of the recipe world where flavors meet simplicity, and every recipe is created to make cooking fun and stress-free. Here, you’ll find easy, wholesome dishes perfect for everyday meals and special moments alike. I focus on clear steps, simple ingredients, and reliable results so anyone can cook with confidence. Whether you’re a beginner or a food lover, there’s something here for you to enjoy and share. <br><br> Cooking here is all about comfort, creativity, and consistency. Each recipe is tested to fit busy lifestyles without compromising on taste. My goal is to help you enjoy the process as much as the final dish.
+    </p>
     <h2>Download Recipe List</h2>
     @if(recipes.length > 0){
         <div class="row">
         @for (i of recipes; track $index) {
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-md-3 col-4">
             <div class="p-3">
                 <img [src]="i.recipeImage" alt="recipe" class="img-fluid card-img-top">
                 <div class="card-body">
@@ -32,7 +28,6 @@
         </div>
         }
     </div>
-
     }
     @else {
         <div class="my-5">
@@ -49,8 +44,7 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quas
-            laudantium, quos sit fugit dolores aliquid natus dignissimos</p>
+        <p style="text-align: justify;">Hi, I’m {{username}}. This is my corner of the recipe world where flavors meet simplicity, and every recipe is created to make cooking fun and stress-free. Here, you’ll find easy, wholesome dishes perfect for everyday meals and special moments alike. I focus on clear steps, simple ingredients, and reliable results so anyone can cook with confidence. Whether you’re a beginner or a food lover, there’s something here for you to enjoy and share. </p>
         <form class="my-2 p-2">
             <div class="text-center">
                 <input type="file" id="profile" hidden>
