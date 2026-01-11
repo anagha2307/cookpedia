@@ -75,14 +75,14 @@
             <form style="width: 380px;" class="border rounded shadow p-5 mt-5 mb-5">
                 <h2 class="text-center">Client Testimony</h2>
                 <div class="mt-4">
-                    <input type="email" class="form-control my-3" placeholder="Name">
-                    <input type="email" class="form-control my-3" placeholder="Enter your Email id">
-                    <textarea class="form-control my-3" name="email" id="message" placeholder="Message"></textarea>
+                    <input type="text" name="name" [(ngModel)]="name" class="form-control my-3" placeholder="Name" required>
+                    <input type="email" name="email" [(ngModel)]="email" class="form-control my-3" placeholder="Enter your Email id" required>
+                    <textarea class="form-control my-3" name="message" [(ngModel)]="message" placeholder="Message"></textarea>
                 </div>
                 <p class="text-secondary">By submitting, you consent to our response and updates.We may use your details
                     in our site.</p>
                 <div class="float-end">
-                    <button class="btn btn-success">Submit</button>
+                    <button (click)="addFeedback()" type="submit" class="btn btn-success">Submit</button>
                 </div>
             </form>
         </div>

@@ -20,6 +20,10 @@ export class ApiService {
   loginAPI(reqBody:any){
     return this.http.post(`${this.serverURL}/login`,reqBody)
   }
+  //add feedback
+  feedbackAPI(feedback:any){
+    return this.http.post(`${this.serverURL}/user/feedback`,feedback)
+  }
   //append token : return token append req header
   appendToken(){
     const token = sessionStorage.getItem("token")
