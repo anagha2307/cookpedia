@@ -19,7 +19,7 @@ export class Home {
   getAllRecipes(){
     this.api.getAllRecipesAPI().subscribe((res :any) => {
       this.allRecipes = res.slice(2,8)
-      console.log(this.allRecipes);
+      //console.log(this.allRecipes);
     })
   }
 }

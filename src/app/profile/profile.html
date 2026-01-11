@@ -3,7 +3,7 @@
     <div style="height: 200px;" class="row bg-success"></div>
     <div>
         <img width="200px" height="200px" style="border-radius: 50%; margin-top: -100px;"
-            [src]="profile" alt="user"
+            [src]="profile()" alt="user"
             class="border p-2 ms-5">
     </div>
     <h3 class="mt-5">Welcome <span class="text-success">{{username}}</span>
@@ -47,11 +47,9 @@
         <p style="text-align: justify;">Hi, I’m {{username}}. This is my corner of the recipe world where flavors meet simplicity, and every recipe is created to make cooking fun and stress-free. Here, you’ll find easy, wholesome dishes perfect for everyday meals and special moments alike. I focus on clear steps, simple ingredients, and reliable results so anyone can cook with confidence. Whether you’re a beginner or a food lover, there’s something here for you to enjoy and share. </p>
         <form class="my-2 p-2">
             <div class="text-center">
-                <input type="file" id="profile" hidden>
+                <input (change)="getFile($event)" type="file" id="profile" hidden>
                 <label for="profile">
-                    <img width="100px" height="100px" style="border-radius: 50%;"
-                    src="https://res.cloudinary.com/dqumkzogr/image/upload/v1749513679/xfuinmfwnfpdxrxg1s7m.jpg"
-                    alt="profile">
+                    <img width="100px" height="100px" style="border-radius: 50%;" [src]="profile()" alt="profile">
                     <span style="margin-top: 90px; margin-left: -40px;" class="btn btn-primary text-light py-1 px-2">
                         <i class="fa-solid fa-edit"></i>
                     </span>
@@ -70,7 +68,7 @@
                 <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
                 <input name="confirmPassword" [(ngModel)] = "confirmPassword" type="password" class="form-control" id="exampleInputPassword2">
             </div>
-            <button type="submit" class="btn btn-primary w-100">Update</button>
+            <button (click)="editProfile()" type="submit" class="btn btn-primary w-100">Update</button>
         </form>
     </div>
 </div>

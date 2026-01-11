@@ -1,1 +1,0 @@
-John Doe: "https://res.cloudinary.com/dqumkzogr/image/upload/v1749513679/xfuinmfwnfpdxrxg1s7m.jpg"

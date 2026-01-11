@@ -59,6 +59,6 @@ export class ApiService {
   }
   //update user profile
   updateUserAPI(user:any){
-    return this.http.put(`${this.serverURL}/users/${user._id}/edit`,user,this.appendToken())
+    return this.http.put(`${this.serverURL}/users/${user.id}/edit`,user,this.appendToken())
   }
 }
