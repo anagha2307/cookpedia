@@ -1,18 +1,68 @@
 <div class="container-fluid">
     <div class="row">
-        <div style="min-height: 100vh;" class="col-lg-2 bg-success">
-            <app-admin-sidebar/>
+        <div style="height: 100vh;" class="col-lg-2 col-md-4 bg-success">
+            <app-admin-sidebar />
         </div>
-        <div class="col-lg-10 col-md-9 p-0">
-            <div class="bg-success p-3 d-flex justify-content-between align-items-center">
+        <div class="col-lg-10 col-md-8 p-0">
+            <!--Header-->
+            <div class="bg-success w-100 p-3 d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
                     <button class="btn text-light fs-3 me-2"><i class="fa-solid fa-bars"></i></button>
                     <h3 class="text-light fs-2 mt-1">Welcome to Admin Dashboard</h3>
                 </div>
-                <button class="btn text-light"><i class="fa-solid fa-user"></i></button>
+                <div class="dropdown ms-auto">
+                    <button class="btn text-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                    <ul class="dropdown-menu ms-auto">
+                        <li><button class="dropdown-item">Logout <i class="fa-solid fa-power-off"></i></button></li>
+                    </ul>
+                </div>
             </div>
             <!--Dashboard-->
-            
+            <div class="row align-items-center m-5">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
+                        <i class="fa-solid fa-users fs-1 me-4"></i>
+                        <div class="d-flex flex-column">
+                            <h3>Users</h3>
+                            <h4>100 +</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
+                        <i class="fa-solid fa-bowl-food fs-1 me-4"></i>
+                        <div class="d-flex flex-column">
+                            <h3>Recipes</h3>
+                            <h4>100 +</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
+                        <i class="fa-solid fa-download fs-1 me-4"></i>
+                        <div class="d-flex flex-column">
+                            <h3>Downloads</h3>
+                            <h4>100 +</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
+                        <i class="fa-solid fa-message fs-1 me-4"></i>
+                        <div class="d-flex flex-column">
+                            <h3>Notifications</h3>
+                            <h5>You have <a routerLink="" class="text-decoration-none text-warning">10</a> new requests</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+            </div>
         </div>
+
     </div>
 </div>
