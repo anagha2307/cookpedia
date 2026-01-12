@@ -11,6 +11,12 @@ import { SavedReciepes } from './saved-reciepes/saved-reciepes';
 import { Profile } from './profile/profile';
 
 export const routes: Routes = [
+    //lazy loaded admin module path
+    {
+        path:'admin',loadChildren:() => import('./admin/admin-module').then(module => module.AdminModule)
+    },
+    //user side
+    //http://localhost:4200/
     {
         path:'',component:Home, title:'Cookpedia - Home'
     },

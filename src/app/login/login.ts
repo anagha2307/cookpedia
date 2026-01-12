@@ -31,7 +31,7 @@ export class Login {
           alert("Login Successful....!!!!!")
           sessionStorage.setItem("token",res.token)
           sessionStorage.setItem("user",JSON.stringify(res.user))
-          res.user.role == "user" ? this.router.navigateByUrl('/') : this.router.navigateByUrl('/admin/home')
+          res.user.role == "user" ? this.router.navigateByUrl('/') : this.router.navigateByUrl('/admin')
           this.loginForm.reset()
         },
         error:(reason:any) => {
