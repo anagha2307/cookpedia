@@ -24,6 +24,10 @@ export class ApiService {
   feedbackAPI(feedback:any){
     return this.http.post(`${this.serverURL}/user/feedback`,feedback)
   }
+  //view approved feedbacks
+  approvedFeedbackAPI(){
+    return this.http.get(`${this.serverURL}/user/feedbacks/approved`)
+  }
   //append token : return token append req header
   appendToken(){
     const token = sessionStorage.getItem("token")

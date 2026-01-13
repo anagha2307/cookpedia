@@ -23,7 +23,7 @@ import { SearchPipe } from '../pipes/search-pipe';
     AdminDownloadList,
     AdminUsersList,
     AdminFeedbacksList,
-    AdminSidebar
+    AdminSidebar,
   ],
   imports: [
     CommonModule,
@@ -32,10 +32,10 @@ import { SearchPipe } from '../pipes/search-pipe';
     MatCardModule,
     MatDatepickerModule,
     FormsModule,
-    SearchPipe
+    SearchPipe,
   ],
   providers: [
-    provideNativeDateAdapter()
+    provideNativeDateAdapter(),
   ]
 })
 export class AdminModule { }

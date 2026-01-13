@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AdminDashboard {
   selected = new Date()
+  chartOptions: Highcharts.Options = {
+    
+  };
 }
