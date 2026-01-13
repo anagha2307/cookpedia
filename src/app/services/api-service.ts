@@ -65,4 +65,12 @@ export class ApiService {
   updateUserAPI(user:any){
     return this.http.put(`${this.serverURL}/users/${user.id}/edit`,user,this.appendToken())
   }
+  //get all users
+  getAllUsersAPI(){
+    return this.http.get(`${this.serverURL}/users`,this.appendToken())
+  }
+  //get downloads
+  getDownloadListAPI(){
+    return this.http.get(`${this.serverURL}/download-list`,this.appendToken())
+  }
 }

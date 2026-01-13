@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div style="height: 100vh;" class="col-lg-2 col-md-4 bg-success">
+        <div style="min-height: 100vh;" class="col-lg-2 col-md-4 bg-success">
             <app-admin-sidebar />
         </div>
         <div class="col-lg-10 col-md-8 p-0">
@@ -21,8 +21,8 @@
                 </div>
             </div>
             <!--Dashboard-->
-            <div class="row align-items-center m-5">
-                <div class="col-lg-3 col-md-6 col-12">
+            <div class="row align-items-center m-4">
+                <div class="col-lg-3 col-md-6 col-12 mb-3">
                     <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
                         <i class="fa-solid fa-users fs-1 me-4"></i>
                         <div class="d-flex flex-column">
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-3 col-md-6 col-12 mb-3">
                     <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
                         <i class="fa-solid fa-bowl-food fs-1 me-4"></i>
                         <div class="d-flex flex-column">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-3 col-md-6 col-12 mb-3">
                     <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
                         <i class="fa-solid fa-download fs-1 me-4"></i>
                         <div class="d-flex flex-column">
@@ -49,18 +49,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
-                        <i class="fa-solid fa-message fs-1 me-4"></i>
+                <div class="col-lg-3 col-md-6 col-12 mb-3">
+                    <div class=" bg-danger d-flex justify-content-center align-items-center p-2 rounded text-light">
+                        <i class="fa-solid fa-message fs-1 me-3"></i>
                         <div class="d-flex flex-column">
-                            <h3>Notifications</h3>
-                            <h5>You have <a routerLink="" class="text-decoration-none text-warning">10</a> new requests</h5>
+                            <h4>Notifications</h4>
+                            <h5>You have <a routerLink="/admin/feedbacks-list"
+                                    class="text-decoration-none text-warning">10</a> new requests</h5>
                         </div>
                     </div>
                 </div>
-                
-                
-
+            </div>
+            <!--Chart row-->
+            <div class="row px-5 py-2">
+                <div class="col-lg-8">
+                    Bar Chart
+                </div>
+                <div class="col-lg-4">
+                    <mat-card class="demo-inline-calendar-card">
+                        <mat-calendar [(selected)]="selected"></mat-calendar>
+                    </mat-card>
+                </div>
             </div>
         </div>
 

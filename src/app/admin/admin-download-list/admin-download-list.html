@@ -14,14 +14,15 @@
                     <th>Recipe Download Count</th>
                 </thead>
                 <tbody>
+                    @for (item of downloadList; track $index; let i = $index) {
                     <tr>
-                        <td>1</td>
-                        <td>Recipe Id</td>
-                        <td>Recipe Name</td>
-                        <td>Cuisine</td>
-                        <td>4</td>
+                        <td>{{i+1}}</td>
+                        <td>{{item.recipeId}}</td>
+                        <td>{{item.recipeName}}</td>
+                        <td>{{item.recipeCuisine}}</td>
+                        <td>{{item.count}}</td>
                     </tr>
-
+                    }
                 </tbody>
             </table>
         </div>
