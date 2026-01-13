@@ -14,7 +14,7 @@ export class AdminDownloadList {
   ngOnInit(){
     this.getDownloadList()
   }
-
+  
   getDownloadList(){
     this.api.getDownloadListAPI().subscribe((res:any) => {
       this.downloadList = res

@@ -73,4 +73,12 @@ export class ApiService {
   getDownloadListAPI(){
     return this.http.get(`${this.serverURL}/download-list`,this.appendToken())
   }
+  //get feedbacks
+  getFeedbackListAPI(){
+    return this.http.get(`${this.serverURL}/feedbacks`,this.appendToken())
+  }
+  //update feedback
+  updateFeedbackAPI(id:string,status:string){
+    return this.http.put(`${this.serverURL}/feedbacks/${id}/edit?status=${status}`,{},this.appendToken())
+  }
 }

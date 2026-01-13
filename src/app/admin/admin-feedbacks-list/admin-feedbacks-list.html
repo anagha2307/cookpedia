@@ -1,30 +1,41 @@
 <div class="container-fluid">
     <div class="row">
         <div style="min-height: 100vh;" class="col-lg-2 bg-success">
-            <app-admin-sidebar/>
+            <app-admin-sidebar />
         </div>
         <div class="col-lg-10 col-md-9">
             <h1 class="my-5 px-5">All Feedbacks</h1>
-            <table class="table my-5 p-3 border shadow text-center">
+            <table class="table my-5">
                 <thead>
                     <th>#</th>
-                    <th>Userame</th>
+                    <th>Username</th>
                     <th>Email</th>
                     <th>Feedback</th>
                     <th>Action/Status</th>
                 </thead>
                 <tbody>
+                    @for (item of allfeedbacks; track $index; let i = $index) {
                     <tr>
-                        <td>1</td>
-                        <td>Userame</td>
-                        <td>email</td>
-                        <td>Feedback</td>
+                        <td>{{i+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.message}}</td>
                         <td>
-                            <button class="btn btn-success me-3"><i class="fa-solid fa-check"></i></button>
-                            <button class="btn btn-danger"><i class="fa-solid fa-x"></i></button>
+                            @if (item.status == "pending") {
+                            <div class="d-flex">
+                                <button (click)="editStatus(item._id,'approve')" class="btn btn-success me-3"><i class="fa-solid fa-check"></i></button>
+                                <button (click)="editStatus(item._id,'reject')" class="btn btn-danger"><i class="fa-solid fa-x"></i></button>
+                            </div>
+                            }
+                            @else if (item.status == "approve") {
+                                <button class="btn btn-success">APPROVED</button>
+                            }
+                            @else {
+                                <button class="btn btn-danger">REJECTED</button>
+                            }
                         </td>
                     </tr>
-
+                    }
                 </tbody>
             </table>
         </div>
