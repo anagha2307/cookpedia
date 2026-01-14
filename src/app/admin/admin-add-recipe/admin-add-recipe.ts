@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RecipeModel } from '../model/recipeModel';
+import { ApiService } from '../../services/api-service';
 
 @Component({
   selector: 'app-admin-add-recipe',
@@ -8,11 +9,27 @@ import { RecipeModel } from '../model/recipeModel';
   styleUrl: './admin-add-recipe.css',
 })
 export class AdminAddRecipe {
+  api = inject(ApiService)
   recipeDetails:RecipeModel = {}
   ingredientsArray:any = []
   instructionArray:any = []
   mealArray:any = []
+  selectedMealArray:any = []
 
+  ngOnInit(){
+    this.getAllRecipes()
+  }
+  getAllRecipes(){
+    this.api.getAllRecipesAPI().subscribe((res:any) => {
+      const meals = res.map((item:any) => item.mealType)
+      //console.log(meals.flat(Infinity)); 
+      meals.flat(Infinity).forEach((item:any) => {
+        !this.mealArray.includes(item) && this.mealArray.push(item)
+      });
+      console.log(this.mealArray);
+      
+    })
+  }
   addIngredient(ingredientInput:any){
     if(ingredientInput.value){
       this.ingredientsArray.push(ingredientInput.value)
@@ -21,5 +38,23 @@ export class AdminAddRecipe {
   }
   deleteIngredient(value:string){
     this.ingredientsArray = this.ingredientsArray.filter((item:string) => item!=value)
+  }
+
+  addInstruction(instructionInput:any){
+    if(instructionInput.value){
+      this.instructionArray.push(instructionInput.value)
+      instructionInput.value = ""
+    }
+  }
+  deleteInstruction(value:string){
+    this.instructionArray = this.instructionArray.filter((item:string) => item!=value)
+  }
+  chooseMeal(mealCheckevent:any){
+    if(mealCheckevent.target.checked){
+      !this.selectedMealArray.includes(mealCheckevent.target.name) && this.selectedMealArray.push(mealCheckevent.target.name)
+    }
+    else{
+      this.selectedMealArray = this.selectedMealArray.filter((item:string) => item != mealCheckevent.target.name)
+    }
   }
 }
