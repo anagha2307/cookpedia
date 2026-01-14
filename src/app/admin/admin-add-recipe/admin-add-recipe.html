@@ -1,8 +1,99 @@
 <div class="container-fluid">
     <div class="row">
-        <div style="min-height: 100vh;" class="col-lg-2 bg-success">
-            <app-admin-sidebar/>
+        <div style="min-height: 100vh;" class="col-lg-2 col-md-3 bg-success">
+            <app-admin-sidebar />
         </div>
-        <div class="col-lg-10">Add Recipe</div>
+        <div class="col-lg-10 col-md-9">
+            <h1 class="text-center my-5">Add Recipe Details</h1>
+            <div class="container my-5 border rounded shadow p-5 text-center w-75">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-2">
+                            <input [(ngModel)]="recipeDetails.name" type="text" placeholder="Recipe Name"
+                                class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <input [(ngModel)]="recipeDetails.prepTimeMinutes" type="text"
+                                placeholder="Recipe Preparation Time in Minutes" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <input [(ngModel)]="recipeDetails.image" type="text" placeholder="Recipe Image Url"
+                                class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <input [(ngModel)]="recipeDetails.cuisine" type="text"
+                                placeholder="Cuisine Type (eg :Asian,Korean....etc)" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <textarea #ingredient class="form-control"
+                                    placeholder="Add Recipe Ingredients"></textarea>
+                                <button (click)="addIngredient(ingredient)" class="btn ms-2 fw-bold fs-4">+</button>
+                            </div>
+                        </div>
+                        @for (item of ingredientsArray; track $index) {
+                        <div class="d-flex align-items-center mb-2">
+                            <input [value]="item" class="form-control" placeholder="Recipe Ingredients">
+                            <button (click)="deleteIngredient(item)" class="btn ms-2 fw-bold fs-6">
+                                <i class="fa-solid fa-trash text-danger"></i>
+                            </button>
+                        </div>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-2">
+                            <input [(ngModel)]="recipeDetails.servings" type="text"
+                                placeholder="Recipe Servings (eg : 4)" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <input [(ngModel)]="recipeDetails.cookTimeMinutes" type="text"
+                                placeholder="Recipe Cooking Time in Minutes" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <input [(ngModel)]="recipeDetails.caloriesPerServing" type="text"
+                                placeholder="Recipe Calorie Per Serving (eg : 350)" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <select [(ngModel)]="recipeDetails.difficulty" name="mode" id="mode" class="form-control">
+                                <option disabled selected>Choose Mode Of Cooking</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <textarea class="form-control" placeholder="Add Cooking Instructions"></textarea>
+                                <button class="btn ms-2 fw-bold fs-4">+</button>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex align-items-center mb-2">
+                                <input class="form-control" placeholder="Recipe Instructions" />
+                                <button class="btn ms-2 fw-bold fs-6">
+                                    <i class="fa-solid fa-trash text-danger"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-3">
+                    <div class="rounded border p-3">
+                        <p class="mb-2">Choose Meal Type of the Recipe :
+                            <span class="border rounded m-2 p-1">meal</span>
+                        </p>
+                        <div class="d-flex flex-wrap my-2">
+                            <!--meal type-->
+                            <div class="border rounded m-2 p-2">
+                                <label for="meal" class="d-flex align-items-center">
+                                    <input type="checkbox" id="meal" class="me-1">meal
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success">Add Recipe</button>
+            </div>
+        </div>
     </div>
 </div>
