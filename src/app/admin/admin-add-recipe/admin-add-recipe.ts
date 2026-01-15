@@ -53,8 +53,7 @@ export class AdminAddRecipe {
   chooseMeal(mealCheckevent:any){
     if(mealCheckevent.target.checked){
       !this.selectedMealArray.includes(mealCheckevent.target.name) && this.selectedMealArray.push(mealCheckevent.target.name)
-    }
-    else{
+    }else{
       this.selectedMealArray = this.selectedMealArray.filter((item:string) => item != mealCheckevent.target.name)
     }
   }
@@ -80,6 +79,5 @@ export class AdminAddRecipe {
     else{
       alert("Please fill the form completely.....!!!!")
     }
-
   }
 }

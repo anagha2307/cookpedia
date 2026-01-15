@@ -19,7 +19,13 @@ export class AdminRecipeList {
     this.api.getAllRecipesAPI().subscribe((res:any) => {
       this.allRecipes = res
       console.log(this.allRecipes);
-      
     })
   }
+  deleteRecipe(id:string){
+    this.api.deleteRecipeAPI(id).subscribe((res) => {
+      alert("Recipe deleted.......!!!!")
+      this.getAllRecipes()
+    })
+  }
+
 }
