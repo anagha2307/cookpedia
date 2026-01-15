@@ -56,7 +56,7 @@
                         </div>
                         <div class="mb-2">
                             <select [(ngModel)]="recipeDetails.difficulty" name="mode" id="mode" class="form-control">
-                                <option disabled selected>Choose Mode Of Cooking</option>
+                                <option value="" disabled >Choose Mode Of Cooking</option>
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
                                 <option value="hard">Hard</option>
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success">Add Recipe</button>
+                <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
             </div>
         </div>
     </div>

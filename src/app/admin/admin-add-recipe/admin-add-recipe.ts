@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RecipeModel } from '../model/recipeModel';
 import { ApiService } from '../../services/api-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-add-recipe',
@@ -15,6 +16,7 @@ export class AdminAddRecipe {
   instructionArray:any = []
   mealArray:any = []
   selectedMealArray:any = []
+  router = inject(Router)
 
   ngOnInit(){
     this.getAllRecipes()
@@ -39,7 +41,6 @@ export class AdminAddRecipe {
   deleteIngredient(value:string){
     this.ingredientsArray = this.ingredientsArray.filter((item:string) => item!=value)
   }
-
   addInstruction(instructionInput:any){
     if(instructionInput.value){
       this.instructionArray.push(instructionInput.value)
@@ -56,5 +57,29 @@ export class AdminAddRecipe {
     else{
       this.selectedMealArray = this.selectedMealArray.filter((item:string) => item != mealCheckevent.target.name)
     }
+  }
+  addRecipe(){
+    this.recipeDetails.ingredients = this.ingredientsArray
+    this.recipeDetails.instructions = this.instructionArray
+    this.recipeDetails.mealType = this.selectedMealArray
+    const {name,ingredients,instructions,prepTimeMinutes,cookTimeMinutes,servings,difficulty,cuisine,
+    caloriesPerServing,image,mealType} = this.recipeDetails
+    if(name && ingredients && instructions && prepTimeMinutes && cookTimeMinutes && servings && difficulty && cuisine && caloriesPerServing && image && mealType){
+      //api call
+      this.api.addRecipeAPI(this.recipeDetails).subscribe({
+        next:(res:any) => {
+          alert("New Recipe Added Successfully....!!!!")
+          this.recipeDetails = {}
+          this.ingredientsArray = []
+          this.instructionArray = []
+          this.selectedMealArray = []
+          this.router.navigateByUrl('/admin/recipe-list')
+        }
+      })
+    }
+    else{
+      alert("Please fill the form completely.....!!!!")
+    }
+
   }
 }
