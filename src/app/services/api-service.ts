@@ -94,4 +94,8 @@ export class ApiService {
   deleteRecipeAPI(recipeId:string){
     return this.http.delete(`${this.serverURL}/recipes/${recipeId}/delete`,this.appendToken())
   }
+  //delete Recipe
+  updateRecipeAPI(recipeId:string,recipe:RecipeModel){
+    return this.http.put(`${this.serverURL}/recipes/${recipeId}/update`,recipe,this.appendToken())
+  }
 }

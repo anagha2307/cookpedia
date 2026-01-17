@@ -95,4 +95,7 @@ export class AdminAddRecipe {
       alert("Please fill the form completely.....!!!!")
     }
   }
+  removeMealType(meal:string){
+    this.selectedMealArray = this.selectedMealArray.filter((item:string) => item != meal)
+  }
 }

@@ -62,7 +62,7 @@
                         </div>
                         <div class="mb-2">
                             <select [(ngModel)]="recipeDetails.difficulty" name="mode" id="mode" class="form-control">
-                                <option value="" disabled >Choose Mode Of Cooking</option>
+                                <option disabled hidden selected >Choose Mode Of Cooking</option>
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
                                 <option value="hard">Hard</option>
@@ -92,7 +92,7 @@
                         @if(recipeId){
                             @for (item of selectedMealArray; track $index) {
                             <span class="border rounded m-2 p-1">{{item}}
-                                <button class="btn text-secondary fw-bolder">X</button>
+                                <button (click)="removeMealType(item)" class="btn text-danger fw-bolder"><i class="fa-solid fa-x"></i></button>
                             </span>
                         }}@else {
                             @for (item of selectedMealArray; track $index) {
@@ -111,7 +111,11 @@
                         </div>
                     </div>
                 </div>
-                <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
+                @if (recipeId) {
+                    <button (click)="addRecipe()" class="btn btn-warning">Update Recipe</button>
+                }@else {
+                    <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
+                }
             </div>
         </div>
     </div>
