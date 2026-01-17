@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RecipeModel } from '../model/recipeModel';
 import { ApiService } from '../../services/api-service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-add-recipe',
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrl: './admin-add-recipe.css',
 })
 export class AdminAddRecipe {
+  route = inject(ActivatedRoute)
+  recipeId:string = ""
   api = inject(ApiService)
   recipeDetails:RecipeModel = {}
   ingredientsArray:any = []
@@ -18,17 +20,30 @@ export class AdminAddRecipe {
   selectedMealArray:any = []
   router = inject(Router)
 
+  constructor(){
+    this.route.params.subscribe((res:any) => {
+      //console.log(res);
+      this.recipeId = res.id
+    })
+  }
+
   ngOnInit(){
     this.getAllRecipes()
   }
   getAllRecipes(){
     this.api.getAllRecipesAPI().subscribe((res:any) => {
+      if(this.recipeId){
+        this.recipeDetails = res.find((item:any) => item._id == this.recipeId)
+        this.instructionArray = this.recipeDetails.instructions
+        this.ingredientsArray = this.recipeDetails.ingredients
+        this.selectedMealArray = this.recipeDetails.mealType
+      }
       const meals = res.map((item:any) => item.mealType)
       //console.log(meals.flat(Infinity)); 
       meals.flat(Infinity).forEach((item:any) => {
         !this.mealArray.includes(item) && this.mealArray.push(item)
       });
-      console.log(this.mealArray);
+      //console.log(this.mealArray);
       
     })
   }

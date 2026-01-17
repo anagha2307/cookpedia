@@ -18,7 +18,7 @@ export class AdminRecipeList {
   getAllRecipes(){
     this.api.getAllRecipesAPI().subscribe((res:any) => {
       this.allRecipes = res
-      console.log(this.allRecipes);
+      //console.log(this.allRecipes);
     })
   }
   deleteRecipe(id:string){
