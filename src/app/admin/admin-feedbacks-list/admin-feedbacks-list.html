@@ -27,7 +27,10 @@
                                 <button (click)="editStatus(item._id,'reject')" class="btn btn-danger"><i class="fa-solid fa-x"></i></button>
                             </div>
                             }@else if (item.status == "approve") {
-                                <button class="btn btn-success">APPROVED</button> 
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-success">APPROVED</button> 
+                                    <i (click)="deleteFeedback(item._id)" class="fa-solid fa-trash text-danger ms-2"></i>
+                                </div>
                             }@else {
                                 <button class="btn btn-danger">REJECTED</button>
                             }

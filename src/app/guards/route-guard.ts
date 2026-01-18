@@ -3,7 +3,9 @@ import { CanActivateFn, Router } from '@angular/router';
 
 export const routeGuard: CanActivateFn = (route, state) => {
   let router = inject(Router)
-  if(sessionStorage.getItem("token")){
+  const token  = sessionStorage.getItem('token');
+  const role  = sessionStorage.getItem('role');
+  if(token && role == 'user'){
     return true;
   }else{
     alert("Unauthorised access...Please Login..!!!")

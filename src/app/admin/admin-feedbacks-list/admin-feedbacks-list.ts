@@ -26,4 +26,10 @@ export class AdminFeedbacksList {
       this.getFeedbackList()
     })
   }
+  deleteFeedback(id:string){
+    this.api.deleteFeedbackAPI(id).subscribe((res) => {
+      alert("Feedback deleted.......!!!!")
+      this.getFeedbackList()
+    })
+  }
 }

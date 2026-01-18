@@ -99,6 +99,10 @@ export class ApiService {
   updateRecipeAPI(recipeId:string,recipe:RecipeModel){
     return this.http.put(`${this.serverURL}/recipes/${recipeId}/update`,recipe,this.appendToken())
   }
+  //delete approved feedback
+  deleteFeedbackAPI(id:string){
+    return this.http.delete(`${this.serverURL}/feedbacks/${id}/delete`,this.appendToken()) 
+  }
   //chart data
   getChartData(){
     this.getDownloadListAPI().subscribe((res:any) => {
@@ -110,4 +114,5 @@ export class ApiService {
       localStorage.setItem("chart",JSON.stringify(downloadArray))
     })
   }
+  
 }
