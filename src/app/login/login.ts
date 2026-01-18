@@ -36,7 +36,8 @@ export class Login {
           this.loginForm.reset()
         },
         error:(reason:any) => {
-          alert(reason.error.message)
+          console.log(reason)
+          alert(reason.error)
           this.loginForm.reset()
         }
       })
