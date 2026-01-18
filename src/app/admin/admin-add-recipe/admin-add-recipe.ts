@@ -98,4 +98,27 @@ export class AdminAddRecipe {
   removeMealType(meal:string){
     this.selectedMealArray = this.selectedMealArray.filter((item:string) => item != meal)
   }
+  updateRecipe(){
+    this.recipeDetails.ingredients = this.ingredientsArray
+    this.recipeDetails.instructions = this.instructionArray
+    this.recipeDetails.mealType = this.selectedMealArray
+    const {name,ingredients,instructions,prepTimeMinutes,cookTimeMinutes,servings,difficulty,cuisine,
+    caloriesPerServing,image,mealType} = this.recipeDetails
+    if(name && ingredients && instructions && prepTimeMinutes && cookTimeMinutes && servings && difficulty && cuisine && caloriesPerServing && image && mealType){
+      //api call
+      this.api.updateRecipeAPI(this.recipeId,this.recipeDetails).subscribe({
+        next:(res:any) => {
+          alert("Recipe updated Successfully....!!!!")
+          this.recipeDetails = {}
+          this.ingredientsArray = []
+          this.instructionArray = []
+          this.selectedMealArray = []
+          this.router.navigateByUrl('/admin/recipe-list')
+        }
+      })
+    }
+    else{
+      alert("Please fill the form completely.....!!!!")
+    }
+  }
 }

@@ -50,7 +50,7 @@ export class ApiService {
   addToDownloadAPI(recipe:any){
     return this.http.put(`${this.serverURL}/recipes/${recipe._id}/download`,recipe,this.appendToken())
   }
-  //get saved recipes
+  //get downloaded recipes
   getDownloadedRecipesAPI(){
     return this.http.get(`${this.serverURL}/recipes/downloaded`,this.appendToken())
   }
@@ -70,6 +70,7 @@ export class ApiService {
   updateUserAPI(user:any){
     return this.http.put(`${this.serverURL}/users/${user.id}/edit`,user,this.appendToken())
   }
+  //admin
   //get all users
   getAllUsersAPI(){
     return this.http.get(`${this.serverURL}/users`,this.appendToken())
@@ -97,5 +98,16 @@ export class ApiService {
   //delete Recipe
   updateRecipeAPI(recipeId:string,recipe:RecipeModel){
     return this.http.put(`${this.serverURL}/recipes/${recipeId}/update`,recipe,this.appendToken())
+  }
+  //chart data
+  getChartData(){
+    this.getDownloadListAPI().subscribe((res:any) => {
+      let downloadArray:any = [] 
+      res.forEach((item:any) => {
+        downloadArray.push({name:item.recipeCuisine,y:item.count})
+      });
+      console.log(downloadArray);  
+      localStorage.setItem("chart",JSON.stringify(downloadArray))
+    })
   }
 }

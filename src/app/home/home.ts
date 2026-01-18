@@ -29,8 +29,7 @@ export class Home {
   getFeedbacks(){
     this.api.approvedFeedbackAPI().subscribe((res:any) => {
       this.allFeedbacks = res
-      console.log(this.allFeedbacks);
-      
+      //console.log(this.allFeedbacks);  
     })
   }
 }

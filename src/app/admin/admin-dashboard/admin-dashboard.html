@@ -1,13 +1,15 @@
 <div class="container-fluid">
     <div class="row">
-        <div style="min-height: 100vh;" class="col-lg-2 col-md-4 bg-success">
+        @if (isSidebarOpen) {
+        <div style="min-height: 100vh;" class="col-lg-2 col-md-3 col-12 bg-success">
             <app-admin-sidebar />
         </div>
-        <div class="col-lg-10 col-md-8 p-0">
+        }
+        <div class="col-lg-10 col-md-9 p-0">
             <!--Header-->
-            <div class="bg-success w-100 p-3 d-flex justify-content-between align-items-center">
+            <div class="bg-success w-100 pt-3 d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                    <button class="btn text-light fs-3 me-2"><i class="fa-solid fa-bars"></i></button>
+                    <button (click)="toggleSidebar()" class="btn text-light fs-3 me-2"><i class="fa-solid fa-bars"></i></button>
                     <h3 class="text-light fs-2 mt-1">Welcome to Admin Dashboard</h3>
                 </div>
                 <div class="dropdown ms-auto">
@@ -16,56 +18,57 @@
                         <i class="fa-solid fa-user"></i>
                     </button>
                     <ul class="dropdown-menu ms-auto">
-                        <li><button class="dropdown-item">Logout <i class="fa-solid fa-power-off"></i></button></li>
+                        <li><button (click)="logout()" class="dropdown-item">Logout <i class="fa-solid fa-power-off"></i></button>
+                        </li>
                     </ul>
                 </div>
             </div>
             <!--Dashboard-->
             <div class="row align-items-center m-4">
                 <div class="col-lg-3 col-md-6 col-12 mb-3">
-                    <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
+                    <div style="background-color:rgb(157, 11, 121);" class="d-flex justify-content-center align-items-center p-3 rounded text-light">
                         <i class="fa-solid fa-users fs-1 me-4"></i>
                         <div class="d-flex flex-column">
                             <h3>Users</h3>
-                            <h4>100 +</h4>
+                            <h4>{{userCount}}</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12 mb-3">
-                    <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
+                    <div style="background-color:rgb(157, 11, 121);" class="d-flex justify-content-center align-items-center p-3 rounded text-light">
                         <i class="fa-solid fa-bowl-food fs-1 me-4"></i>
                         <div class="d-flex flex-column">
                             <h3>Recipes</h3>
-                            <h4>100 +</h4>
+                            <h4>{{recipeCount}}</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12 mb-3">
-                    <div class=" bg-danger d-flex justify-content-center align-items-center p-3 rounded text-light">
+                    <div style="background-color:rgb(157, 11, 121);" class="d-flex justify-content-center align-items-center p-3 rounded text-light">
                         <i class="fa-solid fa-download fs-1 me-4"></i>
                         <div class="d-flex flex-column">
                             <h3>Downloads</h3>
-                            <h4>100 +</h4>
+                            <h4>{{downloadCount}}</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12 mb-3">
-                    <div class=" bg-danger d-flex justify-content-center align-items-center p-2 rounded text-light">
+                    <div style="background-color:rgb(157, 11, 121);" class="d-flex justify-content-center align-items-center p-2 rounded text-light">
                         <i class="fa-solid fa-message fs-1 me-3"></i>
                         <div class="d-flex flex-column">
                             <h4>Notifications</h4>
                             <h5>You have <a routerLink="/admin/feedbacks-list"
-                                    class="text-decoration-none text-warning">10</a> new requests</h5>
+                                    class="text-decoration-none text-warning">{{notification}}</a> new requests</h5>
                         </div>
                     </div>
                 </div>
             </div>
             <!--Chart row-->
-            <div class="row px-5 py-2">
-                <div class="col-lg-8">
-                    <highcharts-chart  [options]="chartOptions" class="chart" />
+            <div class="row p-4">
+                <div class="col-lg-8 col-12">
+                    <highcharts-chart [options]="chartOptions" style="width:100%; height:400px; display:block;" class="chart" />
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-12 py-3">
                     <mat-card class="demo-inline-calendar-card">
                         <mat-calendar [(selected)]="selected"></mat-calendar>
                     </mat-card>

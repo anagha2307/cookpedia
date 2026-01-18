@@ -26,11 +26,9 @@
                                 <button (click)="editStatus(item._id,'approve')" class="btn btn-success me-3"><i class="fa-solid fa-check"></i></button>
                                 <button (click)="editStatus(item._id,'reject')" class="btn btn-danger"><i class="fa-solid fa-x"></i></button>
                             </div>
-                            }
-                            @else if (item.status == "approve") {
-                                <button class="btn btn-success">APPROVED</button>
-                            }
-                            @else {
+                            }@else if (item.status == "approve") {
+                                <button class="btn btn-success">APPROVED</button> 
+                            }@else {
                                 <button class="btn btn-danger">REJECTED</button>
                             }
                         </td>

@@ -18,7 +18,7 @@ export class AdminUsersList {
   getAllUsers(){
     this.api.getAllUsersAPI().subscribe((res:any) => {
       this.allUsers = res
-      console.log(this.allUsers);
+      //console.log(this.allUsers);
     })
   }
 }

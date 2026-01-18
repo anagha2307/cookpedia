@@ -9,11 +9,13 @@ import { Register } from './register/register';
 import { Pnf } from './pnf/pnf';
 import { SavedReciepes } from './saved-reciepes/saved-reciepes';
 import { Profile } from './profile/profile';
+import { routeGuard } from './guards/route-guard';
+import { adminGuard } from './guards/admin-guard';
 
 export const routes: Routes = [
     //lazy loaded admin module path
     {
-        path:'admin',loadChildren:() => import('./admin/admin-module').then(module => module.AdminModule)
+        path:'admin', canActivate:[adminGuard], loadChildren:() => import('./admin/admin-module').then(module => module.AdminModule)
     },
     //user side
     //http://localhost:4200/
@@ -24,10 +26,10 @@ export const routes: Routes = [
         path:'recipes',component:Reciepes,  title:'Cookpedia - Recipes'
     },
     {
-        path:'recipes/:id/view',component:ViewReciepe, title:'Cookpedia - Recipe'
+        path:'recipes/:id/view', canActivate:[routeGuard], component:ViewReciepe, title:'Cookpedia - Recipe'
     },
     {
-        path:'saved-recipes',component:SavedReciepes, title:'Cookpedia - Saved Recipes'
+        path:'saved-recipes',canActivate:[routeGuard], component:SavedReciepes, title:'Cookpedia - Saved Recipes'
     },
     {
         path:'about',component:About, title:'Cookpedia - About'
@@ -39,10 +41,10 @@ export const routes: Routes = [
         path:'login',component:Login, title:'Cookpedia - Login'
     },
     {
-        path:'profile',component:Profile, title:'Cookpedia - Profile'
+        path:'register',component:Register, title:'Cookpedia - Register'
     },
     {
-        path:'register',component:Register, title:'Cookpedia - Register'
+        path:'profile',canActivate:[routeGuard],component:Profile, title:'Cookpedia - Profile'
     },
     {
         path:'**',component:Pnf, title:'Cookpedia - Page Not Found'
